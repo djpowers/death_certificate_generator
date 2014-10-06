@@ -23,18 +23,59 @@ class DeathCertificateGenerator < Sinatra::Base
       pdf.text 'State Board of Health'.upcase, align: :center, size: 24
       pdf.text 'Certificate of Death'.upcase, align: :center, size: 24
     end
-    pdf.text "1. #{'Place of Death'.upcase}: <u>#{params[:certificate][:place_of_death].to_region}</u>", inline_format: true
-    pdf.text "2. #{'Name of Deceased'.upcase}: <u>#{params[:certificate][:name]}</u>", inline_format: true
-    pdf.text "3. #{'Sex'.upcase}: <u>#{params[:certificate][:sex]}</u>", inline_format: true
-    pdf.text "4. #{'Color or Race'.upcase}: <u>#{params[:certificate][:race]}</u>", inline_format: true
-    pdf.text "5. #{'Marital Status'.upcase}: <u>#{params[:certificate][:marital_status]}</u>", inline_format: true
-    pdf.text "6. #{'Date of Birth'.upcase}: <u>#{params[:certificate][:date_of_birth]}</u>", inline_format: true
-    pdf.text "7. #{'Occupation'.upcase}: <u>#{params[:certificate][:occupation]}</u>", inline_format: true
-    pdf.text "8. #{'Birthplace'.upcase}: <u>#{params[:certificate][:birthplace]}</u>", inline_format: true
-    pdf.text "9. #{'Date of Death'.upcase}: <u>#{params[:certificate][:date_of_death]}</u>", inline_format: true
-    pdf.text "10. #{'Place of Burial'.upcase}: <u>#{params[:certificate][:place_of_burial]}</u>", inline_format: true
-    pdf.text "11. #{'Undertaker'.upcase}: <u>#{params[:certificate][:undertaker]}</u>", inline_format: true
+    pdf.font_size 18
+    pdf.text_box "File No.\n#{Time.now.to_i}", at: [600, 500]
+    pdf.stroke_axis
+    pdf.bounding_box([0, 400], width: 233, height: 50) do
+      pdf.text "01. #{'Place of Death'.upcase}:\n<u>#{params[:certificate][:place_of_death].to_region}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([233, 400], width: 233, height: 50) do
+      pdf.text "02. #{'Name of Deceased'.upcase}:\n<u>#{params[:certificate][:name]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([466, 400], width: 233, height: 50) do
+      pdf.text "03. #{'Sex'.upcase}:\n<u>#{params[:certificate][:sex]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([0, 350], width: 233, height: 50) do
+      pdf.text "04. #{'Color or Race'.upcase}:\n<u>#{params[:certificate][:race]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([233, 350], width: 233, height: 50) do
+      pdf.text "05. #{'Marital Status'.upcase}:\n<u>#{params[:certificate][:marital_status]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([466, 350], width: 233, height: 50) do
+      pdf.text "06. #{'Date of Birth'.upcase}:\n<u>#{params[:certificate][:date_of_birth]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([0, 300], width: 233, height: 50) do
+      pdf.text "07. #{'Occupation'.upcase}:\n<u>#{params[:certificate][:occupation]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([233, 300], width: 233, height: 50) do
+      pdf.text "08. #{'Birthplace'.upcase}:\n<u>#{params[:certificate][:birthplace]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([466, 300], width: 233, height: 50) do
+      pdf.text "09. #{'Date of Death'.upcase}:\n<u>#{params[:certificate][:date_of_death]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([0, 250], width: 233, height: 50) do
+      pdf.text "10. #{'Place of Burial'.upcase}:\n<u>#{params[:certificate][:place_of_burial]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.bounding_box([233, 250], width: 233, height: 50) do
+      pdf.text "11. #{'Undertaker'.upcase}:\n<u>#{params[:certificate][:undertaker]}</u>", inline_format: true
+      stroke_bounds(pdf)
+    end
+    pdf.image "images/stock-photo-approved-stamp.png", at: [500, 200]
     pdf.render
+  end
+
+  def stroke_bounds(pdf)
+    pdf.transparent(0.5) { pdf.stroke_bounds }
   end
 
   def state_mappings

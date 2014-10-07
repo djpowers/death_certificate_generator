@@ -55,7 +55,7 @@ class DeathCertificateGenerator < Sinatra::Base
       stroke_bounds(pdf)
     end
     pdf.bounding_box([233, 300], width: 233, height: 50) do
-      pdf.text "08. #{'Birthplace'.upcase}:\n<u>#{params[:certificate][:birthplace]}</u>", inline_format: true
+      pdf.text "08. #{'Birthplace'.upcase}:\n<u>#{params[:certificate][:birthplace].to_region}</u>", inline_format: true
       stroke_bounds(pdf)
     end
     pdf.bounding_box([466, 300], width: 233, height: 50) do

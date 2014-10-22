@@ -1,8 +1,19 @@
-require 'sinatra'
+require 'sinatra/base'
+require 'sinatra/assetpack'
 require 'prawn'
 require 'area'
+require 'sass'
 
 class DeathCertificateGenerator < Sinatra::Base
+  register Sinatra::AssetPack
+  assets {
+    css :application, [
+      '/css/*.css'
+    ]
+
+    css_compression :sass
+  }
+
   configure :development do
     require 'pry'
   end
@@ -16,7 +27,7 @@ class DeathCertificateGenerator < Sinatra::Base
 
     pdf = Prawn::Document.new(page_layout: :landscape)
     pdf.font 'Courier'
-    pdf.image "images/Guilloche-Seal.png"
+    pdf.image "app/images/Guilloche-Seal.png"
     pdf.float do
       pdf.move_up 100
       pdf.text "State of #{state_mappings[params[:certificate][:place_of_death].to_region(state: true)]}".upcase, align: :center, size: 32
@@ -25,7 +36,7 @@ class DeathCertificateGenerator < Sinatra::Base
     end
     pdf.font_size 18
     pdf.text_box "File No.\n#{Time.now.to_i}", at: [600, 500]
-    pdf.stroke_axis
+    # pdf.stroke_axis
     pdf.bounding_box([0, 400], width: 233, height: 50) do
       pdf.text "01. #{'Place of Death'.upcase}:\n<u>#{params[:certificate][:place_of_death].to_region}</u>", inline_format: true
       stroke_bounds(pdf)
@@ -70,7 +81,7 @@ class DeathCertificateGenerator < Sinatra::Base
       pdf.text "11. #{'Undertaker'.upcase}:\n<u>#{params[:certificate][:undertaker]}</u>", inline_format: true
       stroke_bounds(pdf)
     end
-    pdf.image "images/stock-photo-approved-stamp.png", at: [500, 200]
+    pdf.image "app/images/stock-photo-approved-stamp.png", at: [500, 200]
     pdf.render
   end
 

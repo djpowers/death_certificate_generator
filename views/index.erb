@@ -1,59 +1,66 @@
-<form class='' action='/certificate' method='post'>
-  <fieldset>
-    <label for="name">Name of Deceased</label>
-    <input type='text' id="name" name='certificate[name]' required><br />
-  </fieldset>
-  <fieldset>
-    <label for="place_of_death">Place of Death</label>
-    <input type='text' id="place_of_death" name='certificate[place_of_death]' required><br />
-  </fieldset>
-  <fieldset>
-    <label for="sex">Sex</label>
-    <select id="sex" name="certificate[sex]" required>
-      <option value='' default selected></option>
-      <option value='M'>Male</option>
-      <option value='F'>Female</option>
-      <option value='Other'>Other</option>
-    </select>
-  </fieldset>
-  <fieldset>
-    <label for="race">Color or Race</label>
-    <input type='text' id="race" name='certificate[race]' required><br />
-  </fieldset>
-  <fieldset>
-    <label for="marital_status">Marital Status</label>
-    <select id="marital_status" name="certificate[marital_status]" required>
-      <option value='' default selected></option>
-      <option value='Married'>Married</option>
-      <option value='Single'>Single</option>
-      <option value='Divorced'>Divorced</option>
-      <option value='Widowed'>Widowed</option>
-      <option value='Civil Union'>Civil Union</option>
-    </select>
-  </fieldset>
-  <fieldset>
-    <label for="date_of_birth">Date of Birth</label>
-    <input type="date" id="date_of_birth" name="certificate[date_of_birth]" required>
-  </fieldset>
-  <fieldset>
-    <label for="occupation">Occupation</label>
-    <input type="text" id="occupation" name="certificate[occupation]">
-  </fieldset>
-  <fieldset>
-    <label for="birthplace">Birthplace</label>
-    <input type="text" id="birthplace" name="certificate[birthplace]" required>
-  </fieldset>
-  <fieldset>
-    <label for="date_of_death">Date of Death</label>
-    <input type="date" id="date_of_death" name="certificate[date_of_death]" required>
-  </fieldset>
-  <fieldset>
-    <label for="place_of_burial">Place of Burial</label>
-    <input type="text" id="place_of_burial" name="certificate[place_of_burial]" required>
-  </fieldset>
-  <fieldset>
-    <label for="undertaker">Undertaker</label>
-    <input type="text" id="undertaker" name="certificate[undertaker]">
-  </fieldset>
-  <button type='submit'>Create Certificate</button>
-</form>
+<!DOCTYPE html>
+<head>
+  <%= css :application, media: 'screen' %>
+</head>
+
+<body>
+  <form class='' action='/certificate' method='post'>
+    <fieldset>
+      <label for="name">Name of Deceased</label>
+      <input type='text' id="name" name='certificate[name]' required><br />
+    </fieldset>
+    <fieldset>
+      <label for="place_of_death">Place of Death</label>
+      <input type='text' id="place_of_death" name='certificate[place_of_death]' required><br />
+    </fieldset>
+    <fieldset>
+      <label for="sex">Sex</label>
+      <select id="sex" name="certificate[sex]" required>
+        <option value='' default selected></option>
+        <option value='M'>Male</option>
+        <option value='F'>Female</option>
+        <option value='Other'>Other</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="race">Color or Race</label>
+      <input type='text' id="race" name='certificate[race]' required><br />
+    </fieldset>
+    <fieldset>
+      <label for="marital_status">Marital Status</label>
+      <select id="marital_status" name="certificate[marital_status]" required>
+        <option value='' default selected></option>
+        <option value='Married'>Married</option>
+        <option value='Single'>Single</option>
+        <option value='Divorced'>Divorced</option>
+        <option value='Widowed'>Widowed</option>
+        <option value='Civil Union'>Civil Union</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="date_of_birth">Date of Birth</label>
+      <input type="date" id="date_of_birth" name="certificate[date_of_birth]" required>
+    </fieldset>
+    <fieldset>
+      <label for="occupation">Occupation</label>
+      <input type="text" id="occupation" name="certificate[occupation]">
+    </fieldset>
+    <fieldset>
+      <label for="birthplace">Birthplace</label>
+      <input type="text" id="birthplace" name="certificate[birthplace]" required>
+    </fieldset>
+    <fieldset>
+      <label for="date_of_death">Date of Death</label>
+      <input type="date" id="date_of_death" name="certificate[date_of_death]" required>
+    </fieldset>
+    <fieldset>
+      <label for="place_of_burial">Place of Burial</label>
+      <input type="text" id="place_of_burial" name="certificate[place_of_burial]" required>
+    </fieldset>
+    <fieldset>
+      <label for="undertaker">Undertaker</label>
+      <input type="text" id="undertaker" name="certificate[undertaker]">
+    </fieldset>
+    <button type='submit'>Create Certificate</button>
+  </form>
+</body>

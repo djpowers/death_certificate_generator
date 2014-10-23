@@ -4,8 +4,10 @@
 </head>
 
 <body>
-  <form class='' action='/certificate' method='post'>
-    <legend>Death Certificate Generator</legend>
+  <form class='dark-matter' action='/certificate' method='post'>
+    <h1>Death Certificate Generator
+      <span>Please complete all fields.</span>
+    </h1>
     <fieldset>
       <label for="name">Name of Deceased</label>
       <input type='text' id="name" name='certificate[name]' required><br />
@@ -62,6 +64,6 @@
       <label for="undertaker">Undertaker</label>
       <input type="text" id="undertaker" name="certificate[undertaker]">
     </fieldset>
-    <button type='submit'>Create Certificate</button>
+    <button type='submit' class='button'>Create Certificate</button>
   </form>
 </body>

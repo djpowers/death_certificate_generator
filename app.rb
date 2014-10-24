@@ -34,7 +34,7 @@ class DeathCertificateGenerator < Sinatra::Base
     pdf.image "app/images/Guilloche-Seal.png"
     pdf.float do
       pdf.move_up 100
-      pdf.text "State of #{state_mappings[params[:certificate][:place_of_death].to_region(state: true)]}".upcase, align: :center, size: 32
+      pdf.text "State of #{set_state_name(params[:certificate][:place_of_death])}".upcase, align: :center, size: 32
       pdf.text 'State Board of Health'.upcase, align: :center, size: 24
       pdf.text 'Certificate of Death'.upcase, align: :center, size: 24
     end
@@ -42,7 +42,7 @@ class DeathCertificateGenerator < Sinatra::Base
     pdf.text_box "File No.\n#{Time.now.to_i}", at: [600, 500]
     # pdf.stroke_axis
     pdf.bounding_box([0, 400], width: 233, height: 50) do
-      pdf.text "01. #{'Place of Death'.upcase}:\n<u>#{params[:certificate][:place_of_death].to_region}</u>", inline_format: true
+      pdf.text "01. #{'Place of Death'.upcase}:\n<u>#{set_city_name(params[:certificate][:place_of_death])}</u>", inline_format: true
       stroke_bounds(pdf)
     end
     pdf.bounding_box([233, 400], width: 233, height: 50) do
@@ -70,7 +70,7 @@ class DeathCertificateGenerator < Sinatra::Base
       stroke_bounds(pdf)
     end
     pdf.bounding_box([233, 300], width: 233, height: 50) do
-      pdf.text "08. #{'Birthplace'.upcase}:\n<u>#{params[:certificate][:birthplace].to_region}</u>", inline_format: true
+      pdf.text "08. #{'Birthplace'.upcase}:\n<u>#{set_city_name(params[:certificate][:birthplace])}</u>", inline_format: true
       stroke_bounds(pdf)
     end
     pdf.bounding_box([466, 300], width: 233, height: 50) do
@@ -91,6 +91,22 @@ class DeathCertificateGenerator < Sinatra::Base
 
   def stroke_bounds(pdf)
     pdf.transparent(0.5) { pdf.stroke_bounds }
+  end
+
+  def set_state_name(input)
+    begin
+      input.to_region(state: true)
+    rescue
+      input
+    end
+  end
+
+  def set_city_name(input)
+    begin
+      input.to_region
+    rescue
+      input
+    end
   end
 
   def state_mappings

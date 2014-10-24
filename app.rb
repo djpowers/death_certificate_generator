@@ -7,6 +7,10 @@ require 'sass'
 class DeathCertificateGenerator < Sinatra::Base
   register Sinatra::AssetPack
   assets {
+    js :app, [
+      '/js/*.js'
+    ]
+
     css :application, [
       '/css/*.css'
     ]

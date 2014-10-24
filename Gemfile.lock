@@ -4,6 +4,11 @@ GEM
     area (0.10.0)
       fastercsv (~> 1.5)
     coderay (1.1.0)
+    coffee-script (2.3.0)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.8.0)
+    execjs (2.2.1)
     fastercsv (1.5.5)
     jsmin (1.0.1)
     method_source (0.8.2)
@@ -39,6 +44,7 @@ PLATFORMS
 
 DEPENDENCIES
   area
+  coffee-script
   prawn
   pry
   sass

@@ -66,7 +66,7 @@ class DeathCertificateGenerator < Sinatra::Base
       stroke_bounds(pdf)
     end
     pdf.bounding_box([0, 300], width: 233, height: 50) do
-      pdf.text "07. #{'Occupation'.upcase}:\n<u>#{params[:certificate][:occupation]}</u>", inline_format: true
+      pdf.text "07. #{'Occupation'.upcase}:\n<u>#{set_optional_field(params[:certificate][:occupation])}</u>", inline_format: true
       stroke_bounds(pdf)
     end
     pdf.bounding_box([233, 300], width: 233, height: 50) do
@@ -78,11 +78,11 @@ class DeathCertificateGenerator < Sinatra::Base
       stroke_bounds(pdf)
     end
     pdf.bounding_box([0, 250], width: 233, height: 50) do
-      pdf.text "10. #{'Place of Burial'.upcase}:\n<u>#{params[:certificate][:place_of_burial]}</u>", inline_format: true
+      pdf.text "10. #{'Place of Burial'.upcase}:\n<u>#{set_optional_field(params[:certificate][:place_of_burial])}</u>", inline_format: true
       stroke_bounds(pdf)
     end
     pdf.bounding_box([233, 250], width: 233, height: 50) do
-      pdf.text "11. #{'Undertaker'.upcase}:\n<u>#{params[:certificate][:undertaker]}</u>", inline_format: true
+      pdf.text "11. #{'Undertaker'.upcase}:\n<u>#{set_optional_field(params[:certificate][:undertaker])}</u>", inline_format: true
       stroke_bounds(pdf)
     end
     pdf.image "app/images/stock-photo-approved-stamp.png", at: [500, 200]
@@ -107,6 +107,10 @@ class DeathCertificateGenerator < Sinatra::Base
     rescue
       input
     end
+  end
+
+  def set_optional_field(input)
+    input.empty? ? 'Unknown' : input
   end
 
   def state_mappings

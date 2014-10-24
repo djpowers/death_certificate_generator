@@ -12,11 +12,13 @@
     </h1>
     <fieldset>
       <label for="name">Name of Deceased</label>
-      <input type='text' id="name" name='certificate[name]' required><br />
+      <input type='text' id="name" name='certificate[name]'
+        placeholder='John Doe' required><br />
     </fieldset>
     <fieldset>
       <label for="place_of_death">Place of Death</label>
-      <input type='text' id="place_of_death" name='certificate[place_of_death]' required><br />
+      <input type='text' id="place_of_death" name='certificate[place_of_death]'
+        placeholder='02111' required><br />
     </fieldset>
     <fieldset>
       <label for="sex">Sex</label>
@@ -29,7 +31,8 @@
     </fieldset>
     <fieldset>
       <label for="race">Color or Race</label>
-      <input type='text' id="race" name='certificate[race]' required><br />
+      <input type='text' id="race" name='certificate[race]'
+        placeholder='Caucasian' required><br />
     </fieldset>
     <fieldset>
       <label for="marital_status">Marital Status</label>
@@ -39,7 +42,6 @@
         <option value='Single'>Single</option>
         <option value='Divorced'>Divorced</option>
         <option value='Widowed'>Widowed</option>
-        <option value='Civil Union'>Civil Union</option>
       </select>
     </fieldset>
     <fieldset>
@@ -48,11 +50,13 @@
     </fieldset>
     <fieldset>
       <label for="occupation">Occupation</label>
-      <input type="text" id="occupation" name="certificate[occupation]">
+      <input type="text" id="occupation" name="certificate[occupation]"
+        placeholder='Unemployed'>
     </fieldset>
     <fieldset>
       <label for="birthplace">Birthplace</label>
-      <input type="text" id="birthplace" name="certificate[birthplace]" required>
+      <input type="text" id="birthplace" name="certificate[birthplace]"
+        placeholder='02111' required>
     </fieldset>
     <fieldset>
       <label for="date_of_death">Date of Death</label>
@@ -60,11 +64,13 @@
     </fieldset>
     <fieldset>
       <label for="place_of_burial">Place of Burial</label>
-      <input type="text" id="place_of_burial" name="certificate[place_of_burial]" required>
+      <input type="text" id="place_of_burial" name="certificate[place_of_burial]"
+        placeholder='Willow Cemetery'>
     </fieldset>
     <fieldset>
       <label for="undertaker">Undertaker</label>
-      <input type="text" id="undertaker" name="certificate[undertaker]">
+      <input type="text" id="undertaker" name="certificate[undertaker]"
+        placeholder='Mark W. Calaway'>
     </fieldset>
     <button type='submit' class='button'>Create Certificate</button>
   </form>

@@ -8,7 +8,7 @@
   <a href="https://github.com/djpowers/death_certificate_generator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
   <form class='dark-matter' action='/certificate' method='post'>
     <h1>Death Certificate Generator
-      <span>Please complete all fields.</span>
+      <span>Field names in <i>italics</i> are optional.</span>
     </h1>
     <fieldset>
       <label for="name">Name of Deceased</label>
@@ -49,7 +49,7 @@
       <input type="date" id="date_of_birth" name="certificate[date_of_birth]" required>
     </fieldset>
     <fieldset>
-      <label for="occupation">Occupation</label>
+      <label for="occupation"><i>Occupation</i></label>
       <input type="text" id="occupation" name="certificate[occupation]"
         placeholder='Unemployed'>
     </fieldset>
@@ -63,15 +63,27 @@
       <input type="date" id="date_of_death" name="certificate[date_of_death]" required>
     </fieldset>
     <fieldset>
-      <label for="place_of_burial">Place of Burial</label>
+      <label for="place_of_burial"><i>Place of Burial</i></label>
       <input type="text" id="place_of_burial" name="certificate[place_of_burial]"
         placeholder='Willow Cemetery'>
     </fieldset>
     <fieldset>
-      <label for="undertaker">Undertaker</label>
+      <label for="undertaker"><i>Undertaker</i></label>
       <input type="text" id="undertaker" name="certificate[undertaker]"
         placeholder='Mark W. Calaway'>
     </fieldset>
     <button type='submit' class='button'>Create Certificate</button>
+    <p id='reminder'>&mdash; Remember to save the result to your computer for sharing!<p>
   </form>
+
+  <div id="explanation">
+    <h2 id='privacy'>Privacy Policy</h2>
+    <p>
+      This application is not database-backed, and therefore no information is saved from a form submission.
+      This is why generated PDF files must be saved, rather than mailing a direct link. If you are curious,
+      the code is <a href="https://github.com/djpowers/death_certificate_generator">open source</a>, and pull requests are welcome.
+      This project is intended to be used for entertainment purposes only. I am not liable for consequences
+      resulting from misuse.
+    </p>
+  </div>
 </body>

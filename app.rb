@@ -26,6 +26,10 @@ class DeathCertificateGenerator < Sinatra::Base
     erb :index
   end
 
+  get '/certificate' do
+    redirect '/'
+  end
+
   post '/certificate' do
     content_type 'application/pdf'
 

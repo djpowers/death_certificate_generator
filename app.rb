@@ -34,7 +34,7 @@ class DeathCertificateGenerator < Sinatra::Base
     pdf.image "app/images/Guilloche-Seal.png"
     pdf.float do
       pdf.move_up 100
-      pdf.text "State of #{set_state_name(params[:certificate][:place_of_death])}".upcase, align: :center, size: 32
+      pdf.text "#{set_state_name(params[:certificate][:place_of_death])}".upcase, align: :center, size: 32
       pdf.text 'State Board of Health'.upcase, align: :center, size: 24
       pdf.text 'Certificate of Death'.upcase, align: :center, size: 24
     end
@@ -95,9 +95,9 @@ class DeathCertificateGenerator < Sinatra::Base
 
   def set_state_name(input)
     begin
-      input.to_region(state: true)
+      "State of #{state_mappings[input.to_region(state: true)]}"
     rescue
-      input
+      "Office of #{input}"
     end
   end
 

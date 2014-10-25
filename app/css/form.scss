@@ -35,6 +35,10 @@ label {
   padding-right: 10px;
   margin-top: 10px;
   font-weight: bold;
+
+  span {
+    font-style: italic;
+  }
 }
 
 input, select {

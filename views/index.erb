@@ -8,20 +8,20 @@
   <a href="https://github.com/djpowers/death_certificate_generator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
   <form class='dark-matter' action='/certificate' method='post'>
     <h1>Death Certificate Generator
-      <span>Field names in <i>italics</i> are optional.</span>
+      <span>Field names in <span>italics</span> are optional.</span>
     </h1>
     <fieldset>
-      <label for="name">Name of Deceased</label>
+      <label for="name">Name of Deceased:</label>
       <input type='text' id="name" name='certificate[name]'
         placeholder='John Doe' required><br />
     </fieldset>
     <fieldset>
-      <label for="place_of_death">Place of Death</label>
+      <label for="place_of_death">Place of Death:</label>
       <input type='text' id="place_of_death" name='certificate[place_of_death]'
         placeholder='02111' required><br />
     </fieldset>
     <fieldset>
-      <label for="sex">Sex</label>
+      <label for="sex">Sex:</label>
       <select id="sex" name="certificate[sex]" required>
         <option value='' default selected></option>
         <option value='M'>Male</option>
@@ -30,12 +30,12 @@
       </select>
     </fieldset>
     <fieldset>
-      <label for="race">Color or Race</label>
+      <label for="race">Color or Race:</label>
       <input type='text' id="race" name='certificate[race]'
         placeholder='Caucasian' required><br />
     </fieldset>
     <fieldset>
-      <label for="marital_status">Marital Status</label>
+      <label for="marital_status">Marital Status:</label>
       <select id="marital_status" name="certificate[marital_status]" required>
         <option value='' default selected></option>
         <option value='Married'>Married</option>
@@ -45,30 +45,30 @@
       </select>
     </fieldset>
     <fieldset>
-      <label for="date_of_birth">Date of Birth</label>
+      <label for="date_of_birth">Date of Birth:</label>
       <input type="date" id="date_of_birth" name="certificate[date_of_birth]" required>
     </fieldset>
     <fieldset>
-      <label for="occupation"><i>Occupation</i></label>
+      <label for="occupation"><span>Occupation:</span></label>
       <input type="text" id="occupation" name="certificate[occupation]"
         placeholder='Unemployed'>
     </fieldset>
     <fieldset>
-      <label for="birthplace">Birthplace</label>
+      <label for="birthplace">Birthplace:</label>
       <input type="text" id="birthplace" name="certificate[birthplace]"
         placeholder='02111' required>
     </fieldset>
     <fieldset>
-      <label for="date_of_death">Date of Death</label>
+      <label for="date_of_death">Date of Death:</label>
       <input type="date" id="date_of_death" name="certificate[date_of_death]" required>
     </fieldset>
     <fieldset>
-      <label for="place_of_burial"><i>Place of Burial</i></label>
+      <label for="place_of_burial"><span>Place of Burial:</span></label>
       <input type="text" id="place_of_burial" name="certificate[place_of_burial]"
         placeholder='Willow Cemetery'>
     </fieldset>
     <fieldset>
-      <label for="undertaker"><i>Undertaker</i></label>
+      <label for="undertaker"><span>Undertaker:</span></label>
       <input type="text" id="undertaker" name="certificate[undertaker]"
         placeholder='Mark W. Calaway'>
     </fieldset>

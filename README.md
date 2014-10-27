@@ -14,7 +14,7 @@ rackup -p 4567
 
 ### Example Output
 
-![](certificate.pdf)
+![](certificate.png)
 
 ### TODO
 

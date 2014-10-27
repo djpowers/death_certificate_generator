@@ -12,6 +12,10 @@ You can run the app like any other Sinatra [modular application](http://www.sina
 rackup -p 4567
 ```
 
+### Example Output
+
+![](certificate.pdf)
+
 ### TODO
 
 There are probably not too many features that will be added. The idea is to keep things simple, so helpful refinements are most likely. A happy path test using rspec would probably be the next step to ensure basic functionality continues to work.

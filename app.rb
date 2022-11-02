@@ -131,6 +131,7 @@ class DeathCertificateGenerator < Sinatra::Base
      "AK"=>"Alaska",
      "AZ"=>"Arizona",
      "AR"=>"Arkansas",
+     "BD"=>"Bangladesh",
      "CA"=>"California",
      "CO"=>"Colorado",
      "CT"=>"Connecticut",
